@@ -45,4 +45,11 @@ dependencies {
 
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    // Koin for Android
+    implementation "org.koin:koin-android:2.2.0"
+    // or Koin for Lifecycle scoping
+    implementation "org.koin:koin-androidx-scope:2.2.0"
+    // or Koin for Android Architecture ViewModel
+    implementation "org.koin:koin-androidx-viewmodel:2.2.0"
 }

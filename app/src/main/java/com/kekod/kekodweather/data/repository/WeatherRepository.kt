@@ -1,15 +1,12 @@
 package com.kekod.kekodweather.data.repository
 
-import com.kekod.kekodweather.data.network.RetrofitClient
 import com.kekod.kekodweather.data.network.api.WeatherAPIService
 import com.kekod.kekodweather.data.network.response.WeatherByCityNameResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class WeatherRepository {
-    private val weatherAPIService =
-        RetrofitClient.getRetrofit().create(WeatherAPIService::class.java)
+class WeatherRepository(private val weatherAPIService: WeatherAPIService) {
 
     fun getWeatherByCityName(
         cityName: String,
