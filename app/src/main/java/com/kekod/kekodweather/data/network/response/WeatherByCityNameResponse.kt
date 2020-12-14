@@ -1,4 +1,6 @@
-package com.kekod.kekodweather
+package com.kekod.kekodweather.data.network.response
+
+import com.kekod.kekodweather.data.model.*
 
 data class WeatherByCityNameResponse(
     val coord: CoordModel,
