@@ -2,7 +2,9 @@ package com.kekod.kekodweather.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.kekod.kekodweather.data.repository.WeatherRepository
+import kotlinx.coroutines.launch
 
 class MainViewModel(private val weatherRepository: WeatherRepository) : ViewModel() {
 
@@ -10,10 +12,16 @@ class MainViewModel(private val weatherRepository: WeatherRepository) : ViewMode
     val errorWeatherByCityNameResponse = MutableLiveData<String>()
 
     fun getWeatherByCityName(cityName: String, unit: String) {
-        weatherRepository.getWeatherByCityName(cityName, unit, {
-            feelsLike.value = it?.main?.feels_like.toString()
-        }, {
-            errorWeatherByCityNameResponse.value = it
-        })
+        viewModelScope.launch {
+            try {
+                val weatherByCityNameResponse =
+                    weatherRepository.getWeatherByCityName(cityName, unit)
+                weatherByCityNameResponse.main.feels_like.let {
+                    feelsLike.value = it.toString()
+                }
+            } catch (exception: Exception) {
+                errorWeatherByCityNameResponse.value = exception.message
+            }
+        }
     }
 }
