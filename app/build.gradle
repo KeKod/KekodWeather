@@ -30,6 +30,16 @@ android {
             dimension "api"
             buildConfigField 'String', 'BASE_URL', '"https://api.openweathermap.org/data/2.5/"'
         }
+
+        prep{
+            dimension "api"
+            buildConfigField 'String', 'BASE_URL', '"https://api.openweathermap.org/data/2.5/"'
+        }
+
+        prod{
+            dimension "api"
+            buildConfigField 'String', 'BASE_URL', '"https://api.openweathermap.org/data/2.5/"'
+        }
     }
 
     compileOptions {
