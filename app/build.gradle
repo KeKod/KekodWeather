@@ -23,6 +23,15 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "api"
+    productFlavors{
+        dev{
+            dimension "api"
+            buildConfigField 'String', 'BASE_URL', '"https://api.openweathermap.org/data/2.5/"'
+        }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

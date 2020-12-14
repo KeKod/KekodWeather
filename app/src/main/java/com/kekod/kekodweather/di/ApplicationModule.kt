@@ -1,5 +1,6 @@
 package com.kekod.kekodweather.di
 
+import com.kekod.kekodweather.BuildConfig
 import com.kekod.kekodweather.data.network.api.WeatherAPIService
 import com.kekod.kekodweather.data.repository.WeatherRepository
 import org.koin.dsl.module
@@ -8,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 fun getRetrofit(): Retrofit {
     return Retrofit.Builder()
-        .baseUrl("https://api.openweathermap.org/data/2.5/")
+        .baseUrl(BuildConfig.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 }
