@@ -5,7 +5,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.kekod.kekodweather.R
-import com.kekod.kekodweather.data.network.api.WeatherAPI
+import com.kekod.kekodweather.data.network.api.WeatherAPIService
 import com.kekod.kekodweather.data.network.response.WeatherByCityNameResponse
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,10 +26,10 @@ class MainActivity : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val weatherAPI: WeatherAPI = retrofit.create(WeatherAPI::class.java)
+        val weatherAPIService: WeatherAPIService = retrofit.create(WeatherAPIService::class.java)
 
         val weatherByCityNameResponse: Call<WeatherByCityNameResponse> =
-            weatherAPI.getWeatherByCityName("istanbul", "metric")
+            weatherAPIService.getWeatherByCityName("istanbul", "metric")
 
         weatherByCityNameResponse.enqueue(object : Callback<WeatherByCityNameResponse> {
             override fun onResponse(
