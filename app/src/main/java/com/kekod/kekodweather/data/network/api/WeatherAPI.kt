@@ -1,5 +1,6 @@
-package com.kekod.kekodweather
+package com.kekod.kekodweather.data.network.api
 
+import com.kekod.kekodweather.data.network.response.WeatherByCityNameResponse
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

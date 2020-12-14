@@ -1,4 +1,4 @@
-package com.kekod.kekodweather
+package com.kekod.kekodweather.data.model
 
 class CoordModel(
     val lon: Double,
